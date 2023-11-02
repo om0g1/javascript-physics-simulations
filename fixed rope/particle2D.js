@@ -23,7 +23,7 @@ class Particle2D {
         if(!this.locked){
             this.velocity.add(force);
             this.position.add(this.velocity);
-            this.velocity.add(this.weight);
+            // this.velocity.add(this.weight);
             this.velocity.scalarMultiply(0.98);
             // this.checkBounds();
         }

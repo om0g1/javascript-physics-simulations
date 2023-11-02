@@ -23,8 +23,8 @@ function getRndInteger(min, max) {
 }
 
 function createRope() {
-    rope = new Rope(pen, center.x, 100, 25, 5, 0.05, {x: canvas.width, y: canvas.height});
-    rope.particles[0].locked = true;
+    rope = new Rope(pen, center.x, 100, 30, 5, 0.05, {x: canvas.width, y: canvas.height});
+    // rope.particles[0].locked = true;
 }
 
 function updateRope() {
