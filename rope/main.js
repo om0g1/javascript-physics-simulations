@@ -1,4 +1,5 @@
-// import Particle from "./particle.js";
+import Vector2D from "./vector2D.js";
+import Particle2D from "./particle2D.js";
 import Spring from "./spring.js";
 
 let rope = [];
@@ -19,8 +20,9 @@ function getRndInteger(min, max) {
 }
 
 function createSpring() {
-    spring = new Spring(pen, {x: center.x, y: 200}, 200, {x: center.x, y: 330});
-    console.log(spring.anchor);
+    const anchor = new Particle2D(pen, center.x, 200, 1);
+    const bob = new Particle2D(pen, center.x, 400, 1);
+    spring = new Spring(pen, anchor, 200, bob);
 }
 
 function updateSpring() {
@@ -32,16 +34,16 @@ function updateSpring() {
 
 document.onmousemove = (e) => {
     if (e.buttons == 1) {
-        spring.velocity = 0;
-        spring.bob = {
-            x: center.x,
-            y: e.clientY
-        }
+        spring.velocity = new Vector2D(0, 0);
+        spring.bob.position.x = e.clientX;
+        spring.bob.position.y = e.clientY;
         isMovingBob = true;
+        canvas.style.cursor = "grab";
     }
 }
 
 document.onmouseup = () => {
+    canvas.style.cursor = "auto";
     isMovingBob = false;
 }
 
