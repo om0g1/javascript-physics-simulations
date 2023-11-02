@@ -8,13 +8,6 @@ class Particle2D {
         this.position = new Vector2D(x, y);
         this.velocity = new Vector2D(0, 0);
         this.mass = mass;
-        this.gravity = new Vector2D(0, 1);
-    }
-    applyForce(force) {
-        this.velocity.add(force);
-        // this.velocity.add(this.gravity);
-        this.position.add(this.velocity);
-        this.velocity.scalarMultiply(0.98);
     }
     show() {
         this.pen.beginPath();

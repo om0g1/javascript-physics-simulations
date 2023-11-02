@@ -8,6 +8,7 @@ class Spring {
         this.bob = bob;
         this.velocity = new Vector2D(0, 0);
         this.k = 0.01;
+        this.gravity = new Vector2D(0, 1);
         this.displacement = 0;
         this.force = new Vector2D(0, 0);
     }
@@ -16,7 +17,7 @@ class Spring {
         this.force = new Vector2D(bobPosition.x, bobPosition.y);
         this.force.subtract(this.anchor.position);
         this.displacement = this.force.magnitude() - this.restLength;
-        this.force.normalize().scalarMultiply((this.k * this.displacement));
+        this.force.normalize().scalarMultiply((-1 * this.k * this.displacement));
     }
     stretchSpringLine() {
         this.getForceAndDisplacement();
@@ -33,9 +34,10 @@ class Spring {
     }
     update() {
         this.getForceAndDisplacement();
-        this.anchor.applyForce(this.force);
-        this.force.scalarMultiply(-1);
-        this.bob.applyForce(this.force);
+        this.velocity.add(this.force);
+        this.velocity.add(this.gravity);
+        this.bob.position.add(this.velocity);
+        this.velocity.scalarMultiply(0.98);
     }
     show() {
         this.pen.fillStyle = "#C0C0C0";
