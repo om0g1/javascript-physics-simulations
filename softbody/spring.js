@@ -1,11 +1,11 @@
 import Vector2D from "./vector2D.js";
 
 class Spring {
-    constructor(pen, anchor, restLength, bob, k) {
+    constructor(pen, anchor, bob, k) {
         this.pen = pen;
         this.anchor = anchor;
-        this.restLength = restLength;
         this.bob = bob;
+        this.restLength = this.anchor.position.distance(this.bob.position);
         this.velocity = new Vector2D(0, 0);
         this.k = k;
         this.displacement = 0;
@@ -38,12 +38,12 @@ class Spring {
         this.bob.applyForce(this.force);
     }
     show() {
-        this.pen.fillStyle = "#C0C0C0";
+        // this.pen.fillStyle = "#C0C0C0";
         this.stretchSpringLine();
-        this.pen.fillStyle = "#808080";
-        this.anchor.show();
-        this.pen.fillStyle = "#00a4eb";
-        this.bob.show();
+        // this.pen.fillStyle = "#808080";
+        // this.anchor.show();
+        // this.pen.fillStyle = "#00a4eb";
+        // this.bob.show();
     }
 }
 

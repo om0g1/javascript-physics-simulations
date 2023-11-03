@@ -1,0 +1,13 @@
+        // this.particles.push(new Particle2D(this.pen, this.position.x, this.position.y, 1, false, this.bounds));
+        // this.particles.push(new Particle2D(this.pen, this.position.x + this.width, this.position.y, 1, false, this.bounds));
+        // this.particles.push(new Particle2D(this.pen, this.position.x + this.width, this.position.y + this.height, 1, false, this.bounds));
+        // this.particles.push(new Particle2D(this.pen, this.position.x, this.position.y + this.height, 1, false, this.bounds));
+        // this.particles.forEach((particle, index) => {
+        //     for (let i = 0; i < this.particles.length; i++) {
+        //         if (index !== i) {
+        //             const b = this.particles[i];
+        //             const spring = new Spring(this.pen, this.particles[index], this.width, b, this.k);
+        //             this.springs.push(spring);
+        //         }
+        //     }
+        // })

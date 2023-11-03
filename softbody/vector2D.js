@@ -23,8 +23,8 @@ class Vector2D {
         this.y *= scalar;
         return this;
     }
-    dotProduct(vector) {
-        return this.x * vector.x + this.y * vector.x;
+    dot(vector) {
+        return this.x * vector.x + this.y * vector.y;
     }
     magnitude() {
         return Math.sqrt(this.x ** 2 + this.y ** 2);
@@ -34,6 +34,9 @@ class Vector2D {
         this.x /= mag;
         this.y /= mag;
         return this;
+    }
+    distance(vector) {
+        return Math.sqrt((this.x - vector.x) ** 2 + (this.y - vector.y) ** 2);
     }
     copy() {
         return new Vector2D(this.x, this.y);
